@@ -11,7 +11,7 @@ local LP = Players.LocalPlayer
 local playerGui = LP:WaitForChild("PlayerGui")
 
 local environment = (getgenv and getgenv()) or _G
-local RUNTIME_KEY = "__4Hub.vs_CODE_SNIPER_RUNTIME"
+local RUNTIME_KEY = "__Four.vs_CODE_SNIPER_RUNTIME"
 local previous = environment[RUNTIME_KEY]
 if type(previous) == "table" and type(previous.destroy) == "function" then
     pcall(previous.destroy)
@@ -121,11 +121,11 @@ local function createHeadDisplay()
     local head = char:FindFirstChild("Head")
     if not head then return end
 
-    local old = head:FindFirstChild("4Hub.vsCodeSniperHeadDisplay")
+    local old = head:FindFirstChild("Four.vsCodeSniperHeadDisplay")
     if old then old:Destroy() end
 
     local billboard = new("BillboardGui", {
-        Name = "4Hub.vsCodeSniperHeadDisplay",
+        Name = "Four.vsCodeSniperHeadDisplay",
         Adornee = head,
         Size = UDim2.new(0, 200, 0, 30),
         StudsOffset = Vector3.new(0, 2.5, 0),
@@ -152,7 +152,7 @@ local function isOurGui(instance)
     local p = instance
     for _ = 1, 10 do
         if not p then break end
-        if p.Name == "4Hub.vsCodeSniperUI" or p.Name == "4Hub.vsSettingsUI" then return true end
+        if p.Name == "Four.vsCodeSniperUI" or p.Name == "Four.vsSettingsUI" then return true end
         p = p.Parent
     end
     return false
@@ -476,11 +476,11 @@ local function stopNotifListener()
 end
 
 local parentGui = (gethui and gethui()) or CoreGui
-local oldGui = parentGui:FindFirstChild("4Hub.vsCodeSniperUI")
+local oldGui = parentGui:FindFirstChild("Four.vsCodeSniperUI")
 if oldGui then oldGui:Destroy() end
 
 local ScreenGui = new("ScreenGui", {
-    Name = "4Hub.vsCodeSniperUI",
+    Name = "Four.vsCodeSniperUI",
     ResetOnSpawn = false,
     IgnoreGuiInset = true,
     DisplayOrder = 999,
@@ -523,7 +523,7 @@ new("TextLabel", {
     Size = UDim2.new(0, 140, 0, 30),
     Position = UDim2.new(0, 46, 0, 8),
     BackgroundTransparency = 1,
-    Text = "4Hub.vs Code Sniper",
+    Text = "Four.vs Code Sniper",
     TextSize = 16,
     TextColor3 = Color3.fromRGB(180, 180, 190),
     TextXAlignment = Enum.TextXAlignment.Left,
@@ -977,11 +977,11 @@ loadstring(game:HttpGet(""))()
 local keybindsBtnRef = nil
 
 local function createKeybindsWindow()
-    local old = parentGui:FindFirstChild("4Hub.vsSettingsUI")
+    local old = parentGui:FindFirstChild("Four.vsSettingsUI")
     if old then old:Destroy() end
 
     local SG = new("ScreenGui", {
-        Name = "4Hub.vsSettingsUI",
+        Name = "Four.vsSettingsUI",
         ResetOnSpawn = false,
         IgnoreGuiInset = true,
         DisplayOrder = 998,
@@ -1387,7 +1387,7 @@ function runtime.destroy()
     end
 end
 
-_G.4Hub.vsCodeSniper = {
+_G.Four.vsCodeSniper = {
     Toggle = function()
         runtime.enabled = not runtime.enabled
         setToggleVisual(SnipeBtn, runtime.enabled)
